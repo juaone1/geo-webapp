@@ -64,10 +64,6 @@ const HomePage = () => {
   };
 
   useEffect(() => {
-    dispatch(fetchHistory(1));
-  }, []);
-
-  useEffect(() => {
     const fetchIp = async () => {
       try {
         const response = await axios.get("https://api.ipify.org?format=json");
@@ -79,7 +75,7 @@ const HomePage = () => {
         console.error("Error fetching IP address:", error);
       }
     };
-
+    dispatch(fetchHistory(1));
     fetchIp();
   }, []);
 
